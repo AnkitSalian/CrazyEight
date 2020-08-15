@@ -175,7 +175,7 @@ try:
 
             if continue_game:
                 for player in player_list:
-                    print(player)
+                    print(player.name, player)
                 print('Starting a new play....')
                 for player in player_list:
                     player.clear_deck()
