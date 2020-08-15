@@ -134,3 +134,67 @@ class Player:
             except IndexError:
                 print('Entered index is out of range')
 
+deck = create_deck()
+print(deck)
+
+try:
+    player_count = int(input('Enter the number of players: '))
+    player_list = []
+    if player_count > 1 and player_count <= 5:
+        for i in range(player_count):
+            name = input(f'Enter {i+1} player name: ')
+            player_list.append(Player(name))
+        for i in range(player_count if player_count == 5 else 5):
+            for player in player_list:
+                player.pick_card(deck.pop())
+        facedown_card, deck = fetch_face_card(deck)
+
+        while len(deck) > 0:
+            end_game = False
+            continue_game = False
+            max_score = 0
+            for player in player_list:
+                deck, facedown_card, end_game = player.player_play(facedown_card, deck)
+                if end_game:
+                    end_game = True
+                    break
+
+                elif len(player.hand) == 0:
+                    for p in player_list:
+                        p.score = p.calculate_score()
+                        if p.score > max_score:
+                            max_score = p.score
+                        if max_score >= 100:
+                            end_game = True
+
+                    if len(deck) >= player_count * 5:
+                        continue_game = True
+                    else:
+                        end_game = True
+                    break
+
+            if continue_game:
+                for player in player_list:
+                    print(player)
+                print('Starting a new play....')
+                for player in player_list:
+                    player.clear_deck()
+                for i in range(player_count if player_count == 5 else 5):
+                    for index, player in enumerate(player_list):
+                        player.pick_card(deck.pop())
+                continue
+
+            if end_game:
+                break
+
+        scores = []
+        for player in player_list:
+            player.score = player.calculate_score()
+            scores.append(player.score)
+
+        print(f'Player {player_list[scores.index(min(scores))].name} won the game')
+    else:
+        print('This game cannot be played alone, you need atleast 2 and max 5')
+except ValueError:
+    print('Entered value should be an integer')
+
