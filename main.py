@@ -136,6 +136,7 @@ class Player:
 
 deck = create_deck()
 print(deck)
+print('Note index starts from 0 for the playing deck')
 
 try:
     player_count = int(input('Enter the number of players: '))
