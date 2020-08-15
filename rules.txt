@@ -1,0 +1,15 @@
+Rules:
+1) 2-5 players
+2) 5 card are given to each player one card at a time
+3) Top card is placed face down
+4) Card which is placed down can be matched according to number or by suit
+5) If player doesnt have the number or suit card matching he can pick 3 cards, 1 at a time if any of the one matches he needs to drop the card and there is no need to pick other cards.
+6) If player doesnt has a card then he can play with the wild card 8 numbered card, and rest will follow the suit of number 8.
+8) Game will continue till one player dont have any cards to play.
+7) A 			- 1
+   2-10 (except 8) 	- Face Value
+   K/O/J 		- 10
+   8 			- 50
+8) Game will continue till any player score is equal or greater than 100, after this one with the lowest score wins
+9) After distributing all cards if first card which was picked is number 8 then put that card anywhere in the centre and pick a new card
+10) If the deck is finished then that player is packed. If all players cannot play then final score will be calculated as per the remaining cards.
